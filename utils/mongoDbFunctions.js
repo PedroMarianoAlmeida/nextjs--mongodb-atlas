@@ -13,8 +13,14 @@ const connect = async () => {
   return client;
 };
 
-export default async function getDatabase(dbName) {
+export async function getDatabase(dbName) {
   const client = await connect();
   const db = client.db(dbName);
   return db;
+}
+
+export async function getCollection(dbName, collectionName) {
+  const dbCloud = await getDatabase(dbName);
+  const collection = dbCloud.collection(collectionName);
+  return collection;
 }
