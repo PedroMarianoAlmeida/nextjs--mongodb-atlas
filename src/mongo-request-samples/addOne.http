@@ -1,0 +1,7 @@
+http://localhost:3000/api/mongodb/sample_airbnb
+content-type: application/json
+
+{
+    "name": "sample",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
