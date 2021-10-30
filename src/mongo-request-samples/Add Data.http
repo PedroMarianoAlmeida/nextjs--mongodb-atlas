@@ -1,0 +1,30 @@
+#Insert One
+http://localhost:3000/api/mongodb/sample_airbnb/account
+content-type: application/json
+
+{
+    "action": "insertOne",
+    "data": {
+        "name": "Minha info",
+        "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+    }
+}
+
+###
+#Insert Many
+http://localhost:3000/api/mongodb/test/account
+content-type: application/json
+
+{
+    "action": "insertMany",
+    "data": [
+        {
+            "name": "AAA",
+            "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+        },
+        {
+            "name": "BBB",
+            "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+        }
+    ]
+}

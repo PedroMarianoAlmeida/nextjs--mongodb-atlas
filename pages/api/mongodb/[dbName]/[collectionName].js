@@ -8,7 +8,10 @@ export default async function handler(req, res) {
 
   const collectionCloud = await getCollection(dbName, collectionName);
 
-  const actions = { insertOne: collectionCloud.insertOne(data) };
+  const actions = {
+    insertOne: collectionCloud.insertOne(data),
+    insertMany: collectionCloud.insertMany(data),
+  };
 
   const response = await actions[action];
 
