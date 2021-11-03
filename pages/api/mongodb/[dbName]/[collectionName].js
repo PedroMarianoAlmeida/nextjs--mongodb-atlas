@@ -5,15 +5,23 @@ export default async function handler(req, res) {
   const { body } = req;
 
   const { action, data } = body;
-
+  console.log(!action);
   const collectionCloud = await getCollection(dbName, collectionName);
 
-  const actions = {
-    insertOne: collectionCloud.insertOne(data),
-    insertMany: collectionCloud.insertMany(data),
-  };
+  let response;
 
-  const response = await actions[action];
+  if (!action) {
+    // response = await collectionCloud.find({});
+    // console.log(response);
+    // res.status(200).json(response);
+  } else {
+    const actions = {
+      insertOne: collectionCloud.insertOne(data),
+      insertMany: collectionCloud.insertMany(data),
+    };
 
-  res.status(200).json(response);
+    response = await actions[action];
+
+    res.status(200).json(response);
+  }
 }
