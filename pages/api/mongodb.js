@@ -45,18 +45,8 @@ export default async function handler(req, res) {
   if (!validation.ok) res.status(400).json({ message: validation.message });
 
   const collectionCloud = await getCollection(db, collection);
+  let response = await collectionCloud[action](data);
 
-  let response;
-
-  switch (action) {
-    case "insertOne":
-      response = await collectionCloud.insertOne(data);
-      break;
-
-    case "insertMany":
-      response = await collectionCloud.insertMany(data);
-      break;
-  }
-
+  if (!response) return res.status(404);
   res.status(200).json(response);
 }
